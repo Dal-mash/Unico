@@ -1,6 +1,6 @@
 // ProcessCards.jsx
 import React, { useState } from "react";
-import { motion, stagger } from "framer-motion";
+import { motion } from "framer-motion";
 
 const ProcessCards = ({ steps }) => {
   const [hovered, setHovered] = useState(null);
@@ -26,7 +26,7 @@ const ProcessCards = ({ steps }) => {
             style={{
               flex: isActive ? 10 : hovered === null ? 1 : 0,
             }}
-            initial={{ y: isOdd ? 100 : -100 }}
+            initial={{ y: isOdd ? 150 : -150 }}
             whileInView={{ y: 0 }}
             transition={{
               type: "spring",
@@ -55,9 +55,9 @@ const ProcessCards = ({ steps }) => {
                 exit={{ opacity: 0, x: -200 }}
                 transition={{
                   duration: 0.25,
-                  delay: expandDuration * 0.25, // <- waits until almost fully expanded
+                  delay: expandDuration * 0.25,
                 }}
-                className="px-6 text-sm text-blue-900 text-center leading-relaxed max-w-[85%]"
+                className="px-6 py-1.5  bg-[url('/public/images/step_2.jpg')] bg-cover text-white text-center text-lg font-semibold  leading-relaxed h-full w-full"
               >
                 {step.desc}
               </motion.div>

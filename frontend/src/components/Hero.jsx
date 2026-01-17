@@ -4,7 +4,7 @@ export default function Hero() {
   // Set VIDEO_SRC to your video path (e.g. '/videos/hero.mp4' or an external URL)
   const VIDEO_SRC = "./public/blue-light.mp4";
   return (
-    <section className="min-h-screen h-screen justify-center flex items-center bg-white text-slate-900 snap-start relative overflow-hidden">
+    <section className="min-h-screen h-screen justify-center flex items-center bg-transparent text-slate-900 snap-start relative overflow-hidden">
       <Header />
       <video
         className="absolute inset-0 w-full h-full object-cover"

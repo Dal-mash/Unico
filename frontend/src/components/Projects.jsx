@@ -17,7 +17,7 @@ export default function ProjectsSection() {
       </div>
 
       <Motion.div
-        className="relative  flex-5 w-full flex items-center justify-center overflow-hidden"
+        className="relative  flex-5 h-full w-full flex justify-center "
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}

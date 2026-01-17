@@ -1,13 +1,48 @@
 import React, { useState, useEffect } from "react";
 
-const projects = Array.from({ length: 6 }, (_, i) => ({
-  id: i,
-  title: `Project ${i + 1}`,
-  img: `https://images.unsplash.com/photo-1501594907352-04cda38ebc29?q=80&w=1200&auto=format&fit=crop&crop=top&sat=-30&exp=15&blend=000000&blend-mode=multiply`,
-}));
+const projects = [
+  {
+    id: 1,
+    title: "Urban Park Lighting",
+    img: "/public/images/project_1.jpg",
+  },
+  {
+    id: 2,
+    title: "Corporate Campus Illumination",
+    img: "/public/images/project_2.jpg",
+  },
+  {
+    id: 3,
+    title: "Residential Lighting",
+    img: "/public/images/project_3.jpg",
+  },
+  {
+    id: 4,
+    title: "Historic Building Facade",
+    img: "/public/images/project_4.jpg",
+  },
+  {
+    id: 5,
+    title: "Bridge and Pathway Lighting",
+    img: "/public/images/project_5.jpg",
+  },
+  {
+    id: 6,
+    title: "Public Art Installation",
+    img: "/public/images/project_6.jpg",
+  },
+];
 
 export default function ProjectsCarousel() {
   const [current, setCurrent] = useState(0);
+
+  // Preload images on mount
+  useEffect(() => {
+    projects.forEach((project) => {
+      const img = new Image();
+      img.src = project.img;
+    });
+  }, []);
 
   // Auto-slide every 5s
   useEffect(() => {
@@ -18,7 +53,7 @@ export default function ProjectsCarousel() {
   }, [current]);
 
   return (
-    <div className="relative w-full h-150 flex justify-center items-center overflow-hidden">
+    <div className="relative w-full h-4/5 flex justify-center items-center overflow-show">
       {projects.map((project, i) => {
         // Calculate offset relative to current
         let offset = i - current;
@@ -26,8 +61,7 @@ export default function ProjectsCarousel() {
           offset += projects.length;
         if (offset > Math.floor(projects.length / 2)) offset -= projects.length;
 
-        // Only render cards that are close to center (offset -2 to 2)
-        if (Math.abs(offset) > 2) return null;
+        const hidden = Math.abs(offset) > 2;
 
         const isCenter = offset === 0;
 
@@ -42,20 +76,25 @@ export default function ProjectsCarousel() {
                 translateX(${offset * 40}vw)
                 scale(${isCenter ? 1 : 0.8})
                 rotateY(${offset * 15}deg)
+                rotateZ(${offset * 10}deg)
               `,
               zIndex: isCenter ? 20 : 10,
-              opacity: Math.abs(offset) > 2 ? 0 : 1,
+              opacity: hidden ? 0 : 1,
+              pointerEvents: hidden ? "none" : "auto",
               transition: "all 0.7s ease-in-out",
+              willChange: "transform",
             }}
             onClick={() => setCurrent(i)}
           >
-            <img
-              src={project.img}
-              alt={project.title}
-              className="w-full h-full object-cover rounded-xl"
-            />
+            {!hidden && (
+              <img
+                src={project.img}
+                alt={project.title}
+                className="w-full h-full object-cover"
+              />
+            )}
             {isCenter && (
-              <div className="absolute bottom-0 left-0 right-0 bg-black/50 p-4 text-white">
+              <div className="absolute h-full top-3 left-0 right-0 text-white text-center">
                 <h3 className="font-bold text-xl md:text-2xl">
                   {project.title}
                 </h3>

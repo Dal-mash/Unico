@@ -1,6 +1,8 @@
 // Process.jsx
 import React from "react";
 import ProcessCards from "./ProcessCards.jsx";
+import DualTextSlider from "./DualTextSlider.jsx";
+import { motion as Motion } from "framer-motion";
 
 const steps = [
   {
@@ -29,17 +31,58 @@ export default function Process() {
   return (
     <section
       id="Process"
-      className="min-h-screen bg-[url('/public/projects_bg.png')] bg-cover flex items-center text-slate-900 snap-start"
+      className="min-h-screen bg-[url('/public/projects_bg.png')] bg-cover flex items-center justify-center text-slate-900 snap-start"
     >
       <div className="container mx-auto px-6 lg:px-20 py-12">
-        <div className="flex justify-between lg:flex-row items-start gap-12">
+        <div className="flex justify-between align-middle lg:flex-row items-center gap-12">
           {/* Left Side: Text */}
           <div className="lg:w-1/2 text-center">
-            <h2 className="text-6xl font-bold text-blue-900">Our Process</h2>
-            <p className="mt-3 text-slate-600">
+            <Motion.h2
+              initial={{ opacity: 0, y: 50, rotateY: -90 }}
+              whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+              transition={{
+                duration: 0.5,
+                type: "spring",
+                stiffness: 100,
+                damping: 10,
+              }}
+              className="text-6xl font-bold text-blue-900"
+            >
+              Our Process
+            </Motion.h2>
+            <Motion.p
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.5,
+                type: "spring",
+                stiffness: 100,
+                damping: 10,
+              }}
+              className="mt-3 lg:text-lg font-bold text-slate-600"
+            >
               A clear, step-based approach to delivering built work.
-            </p>
+            </Motion.p>
           </div>
+
+          {/* <DualTextSlider
+            topText={
+              <h1 className="mt-4  text-7xl font-bold text-gray-700">
+                Bespoke <span className="text-blue-900">Lighting</span>
+              </h1>
+            }
+            bottomText={
+              <h1 className="mt-4 text-7xl font-bold text-gray-700">
+                <span className="text-blue-900">Solutions</span> With Focus
+              </h1>
+            }
+            verticalDistance={50} // how far vertically to pop from
+            horizontalOffset={25} // optional horizontal slide
+            durationVertical={0.4} // vertical slide duration
+            durationHorizontal={0.3} // horizontal slide duration
+            delay={0.2} // initial delay"
+            className="lg:w-1/2 text-center"
+          /> */}
 
           {/* Right Side: Cards */}
           <div className="lg:w-1/2 flex justify-center">
