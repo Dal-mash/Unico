@@ -57,7 +57,7 @@ const ProcessCards = ({ steps }) => {
                   duration: 0.25,
                   delay: expandDuration * 0.25,
                 }}
-                className="px-6 py-1.5  bg-[url('/public/images/step_2.jpg')] bg-cover text-white text-center text-lg font-semibold  leading-relaxed h-full w-full"
+                className="px-6 py-1.5  bg-[url('/Images/step_2.jpg')] bg-cover text-white text-center text-lg font-semibold  leading-relaxed h-full w-full"
               >
                 {step.desc}
               </motion.div>

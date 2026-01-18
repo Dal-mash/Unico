@@ -2,7 +2,7 @@ import Header from "./Header.jsx";
 
 export default function Hero() {
   // Set VIDEO_SRC to your video path (e.g. '/videos/hero.mp4' or an external URL)
-  const VIDEO_SRC = "./public/blue-light.mp4";
+  const VIDEO_SRC = "/blue-light.mp4";
   return (
     <section className="min-h-screen h-screen justify-center flex items-center bg-transparent text-slate-900 snap-start relative overflow-hidden">
       <Header />

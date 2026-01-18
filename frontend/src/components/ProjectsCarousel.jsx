@@ -4,32 +4,32 @@ const projects = [
   {
     id: 1,
     title: "Urban Park Lighting",
-    img: "/public/images/project_1.jpg",
+    img: "/Images/project_1.jpg",
   },
   {
     id: 2,
     title: "Corporate Campus Illumination",
-    img: "/public/images/project_2.jpg",
+    img: "/Images/project_2.jpg",
   },
   {
     id: 3,
     title: "Residential Lighting",
-    img: "/public/images/project_3.jpg",
+    img: "/Images/project_3.jpg",
   },
   {
     id: 4,
     title: "Historic Building Facade",
-    img: "/public/images/project_4.jpg",
+    img: "/Images/project_4.jpg",
   },
   {
     id: 5,
     title: "Bridge and Pathway Lighting",
-    img: "/public/images/project_5.jpg",
+    img: "/Images/project_5.jpg",
   },
   {
     id: 6,
     title: "Public Art Installation",
-    img: "/public/images/project_6.jpg",
+    img: "/Images/project_6.jpg",
   },
 ];
 

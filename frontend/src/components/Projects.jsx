@@ -1,4 +1,3 @@
-import React from "react";
 import ProjectsCarousel from "./ProjectsCarousel";
 import FancyText from "./FancyText";
 import { motion as Motion } from "framer-motion";
