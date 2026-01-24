@@ -9,14 +9,14 @@ import CTA from "./components/CTA";
 
 function App() {
   return (
-    <div className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth bg-white text-slate-900 no-scrollbar">
+    <div className="h-screen  overflow-y-auto snap-y snap-mandatory scroll-smooth text-slate-900 no-scrollbar">
       <main className="snap-y snap-mandatory">
         <Hero />
         <Services />
         <Projects />
         <Process />
         <TrustSection />
-        <Solutions />
+        {/* <Solutions /> */}
         <CTA />
       </main>
     </div>
