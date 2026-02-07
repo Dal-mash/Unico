@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import CountUp from "./CountUp.jsx";
 
@@ -33,10 +33,33 @@ const metrics = [
 const bgImg = "url('/Images/trust.jpg')";
 
 export default function TrustSection() {
+  const [animationKey, setAnimationKey] = useState(0);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setAnimationKey((prev) => prev + 1);
+        }
+      },
+      { threshold: 0.3 },
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
   return (
     <section
       id="Trust"
-      className="min-h-screen bg-transparent bg-[url('/projects_bg.png')] bg-no-repeat bg-cover h-screen flex snap-start"
+      className="min-h-screen bg-transparent bg-[url('/Images/bg2.svg')] bg-no-repeat bg-cover h-screen flex snap-start"
     >
       {/* Text on left with bg photo */}
       <motion.div
@@ -54,14 +77,20 @@ export default function TrustSection() {
           x: 0,
           transition: { duration: 1 },
         }}
-        viewport={{ once: false }}
+        viewport={{ once: false, amount: 0.3 }}
       >
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center max-w-md">
-            <h2 className="text-6xl font-bold text-blue-900 mb-8">
+            <motion.h2
+              className="text-6xl font-extrabold text-blue-900 mb-8"
+              initial={{ scale: 0, y: 20 }}
+              whileInView={{ scale: 1, y: 0 }}
+              transition={{ duration: 0.8, type: "spring" }}
+              viewport={{ once: false, amount: 0.5 }}
+            >
               Why choose us
-            </h2>
-            <ul className="space-y-3 text-base font-light text-white/90 bg-black/20 p-8 rounded-xl">
+            </motion.h2>
+            <ul className="space-y-3 text-base font-light text-white bg-black/20 p-8 rounded-xl">
               <li>We integrate design and delivery for reliable outcomes.</li>
               <li>Independent product sourcing with lifecycle thinking.</li>
               <li>Focus on safety, efficiency and long-term performance.</li>
@@ -77,7 +106,7 @@ export default function TrustSection() {
         initial="hidden"
         whileInView="visible"
         variants={containerVariants}
-        viewport={{ once: false }}
+        viewport={{ once: false, amount: 0.3 }}
       >
         <div className="flex gap-6">
           {metrics.map((m, index) => (

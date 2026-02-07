@@ -1,29 +1,33 @@
 // Process.jsx
 import React from "react";
 import ProcessCards from "./ProcessCards.jsx";
-import DualTextSlider from "./DualTextSlider.jsx";
 import { motion as Motion } from "framer-motion";
 
 const steps = [
   {
     title: "Site Analysis",
     desc: "Assess the site for constraints, services, and design potential.",
+    img: "/Images/step_1.png",
   },
   {
     title: "Concept Design",
     desc: "Develop initial layouts, sketches, and spatial ideas.",
+    img: "/Images/step_2.jpg",
   },
   {
     title: "Specification",
     desc: "Select materials, fixtures, and performance criteria.",
+    img: "/Images/step_3.jpg",
   },
   {
     title: "Installation",
     desc: "Coordinate delivery and on-site implementation.",
+    img: "/Images/step_4.jpg",
   },
   {
     title: "Commissioning",
     desc: "Test, calibrate, and hand over completed works.",
+    img: "/Images/step_5.jpg",
   },
 ];
 
@@ -31,7 +35,7 @@ export default function Process() {
   return (
     <section
       id="Process"
-      className="min-h-screen bg-[url('/public/projects_bg.png')] bg-cover flex items-center justify-center text-slate-900 snap-start"
+      className="min-h-screen bg-[url('/Images/bg1.svg')] bg-cover flex items-center justify-center text-slate-900 snap-start"
     >
       <div className="container mx-auto px-6 lg:px-20 py-12">
         <div className="flex justify-between align-middle lg:flex-row items-center gap-12">

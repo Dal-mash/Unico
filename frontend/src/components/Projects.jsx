@@ -7,7 +7,7 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="min-h-screen bg-[url('/public/projects_bg.png')] h-screen flex flex-col items-center justify-start bg-no-repeat bg-cover text-slate-900 snap-start relative overflow-hidden"
+      className="min-h-screen bg-[url('/Images/bg2.svg')] h-screen flex flex-col items-center justify-start bg-no-repeat bg-cover text-slate-900 snap-start relative overflow-hidden"
     >
       <div className="pt-12 box flex-1 text-center">
         <h2 className="lg:text-7xl font-bold text-blue-900">

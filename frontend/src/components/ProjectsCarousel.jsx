@@ -44,45 +44,52 @@ export default function ProjectsCarousel() {
     });
   }, []);
 
-  // Auto-slide every 5s
+  // Auto-slide every 4s
   useEffect(() => {
     const timer = setTimeout(() => {
       setCurrent((prev) => (prev + 1) % projects.length);
-    }, 5000);
+    }, 4000);
     return () => clearTimeout(timer);
   }, [current]);
 
   return (
     <div className="relative w-full h-4/5 flex justify-center items-center overflow-show">
       {projects.map((project, i) => {
-        // Calculate offset relative to current
+        // Calculate offset relative to current (circular)
         let offset = i - current;
         if (offset < -Math.floor(projects.length / 2))
           offset += projects.length;
         if (offset > Math.floor(projects.length / 2)) offset -= projects.length;
 
-        const hidden = Math.abs(offset) > 2;
+        // Only show center + one card on each side (3 visible total)
+        const visibleRange = 1;
+        const hidden = Math.abs(offset) > visibleRange;
 
         const isCenter = offset === 0;
+
+        // Positioning: visible cards sit at +/- spacing; hidden cards jump offscreen
+        const spacingVW = 46; // horizontal spacing between visible cards
+        const offscreenX = 120; // far offscreen position for hidden cards
 
         return (
           <div
             key={project.id}
             className="absolute top-0  rounded-xl overflow-hidden shadow-2xl cursor-pointer"
             style={{
-              width: isCenter ? "50vw" : "35vw",
-              height: isCenter ? "70vh" : "70vh",
-              transform: `
-                translateX(${offset * 40}vw)
-                scale(${isCenter ? 1 : 0.8})
-                rotateY(${offset * 15}deg)
-                rotateZ(${offset * 10}deg)
-              `,
+              width: isCenter ? "52vw" : "36vw",
+              height: "70vh",
+              transform: hidden
+                ? `translateX(${offset > 0 ? offscreenX : -offscreenX}vw) scale(0.85)`
+                : `translateX(${offset * spacingVW}vw) scale(${isCenter ? 1.06 : 0.86}) rotateY(${offset * 6}deg) rotateZ(${offset * 4}deg)`,
               zIndex: isCenter ? 20 : 10,
               opacity: hidden ? 0 : 1,
               pointerEvents: hidden ? "none" : "auto",
-              transition: "all 0.7s ease-in-out",
-              willChange: "transform",
+              transition: hidden
+                ? "opacity 200ms linear" // jump transform for hidden items (no cross-screen motion)
+                : "transform 950ms cubic-bezier(.22,.9,.17,1), opacity 520ms linear",
+              willChange: "transform, opacity",
+              transformStyle: "preserve-3d",
+              backfaceVisibility: "hidden",
             }}
             onClick={() => setCurrent(i)}
           >
