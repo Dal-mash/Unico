@@ -33,11 +33,12 @@ const StyledWrapper = styled.div`
 
   .line {
     fill: none;
-    stroke: white;
+    stroke: #1c398e;
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-width: 3;
-    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    transition:
+      stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
       stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 

@@ -38,7 +38,7 @@ const services = [
   {
     title: "Installation",
     desc: "Certified installation and commissioning",
-    icon: "/icons/shipping_icon.svg",
+    icon: "/icons/install.svg",
   },
 ];
 
@@ -46,7 +46,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative min-h-screen flex flex-col items-center justify-center text-slate-900 snap-start overflow-hidden bg-[url('/service_bg.png')] bg-cover bg-center"
+      className="relative min-h-screen flex flex-col items-center justify-center text-slate-900 snap-start overflow-hidden bg-[url('/Images/bg1.svg')] bg-no-repeat bg-cover bg-center"
     >
       <div className="max-w-3xl text-center mx-auto px-4">
         <p className="text-2xl mb-5 w-fit border-3 border-blue-300  px-7 py-2 rounded-3xl text-blue-300 inline-block">
