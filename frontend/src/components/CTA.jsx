@@ -1,5 +1,6 @@
 import React from "react";
 import Footer from "./Footer";
+import Button from "./CTAButton";
 
 export default function CTA() {
   return (
@@ -15,10 +16,8 @@ export default function CTA() {
           Contact us for a site review and tailored proposal. We focus on
           outcomes that last.
         </p>
-        <div className="mt-8">
-          <button className="px-8 py-4 hover:cursor-pointer bg-blue-900 text-white rounded-md text-lg font-semibold">
-            Get started
-          </button>
+        <div className="mt-10 flex justify-center">
+          <Button />
         </div>
       </div>
       <Footer />

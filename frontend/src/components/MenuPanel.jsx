@@ -33,9 +33,9 @@ export default function MenuPanel({ onNavigate }) {
       animate="visible"
       exit="exit"
       className="
-        absolute -left-21 top-0 overflow-hidden mt-3 w-56 origin-top-right
+        absolute -left-21  top-0 overflow-hidden mt-3 w-56 origin-top-right
         rounded-xl p-3 flex flex-col gap-5
-        backdrop-blur-md border border-white/20 shadow-[0_4px_20px_rgba(0,0,0,0.1)]
+       border border-white/20 shadow-[0_4px_20px_rgba(0,0,0,0.1)]
       "
     >
       <motion.button

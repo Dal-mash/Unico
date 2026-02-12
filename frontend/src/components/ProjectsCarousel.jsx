@@ -74,13 +74,13 @@ export default function ProjectsCarousel() {
         return (
           <div
             key={project.id}
-            className="absolute top-0  rounded-xl overflow-hidden shadow-2xl cursor-pointer"
+            className="absolute top-0  rounded-xl overflow-hidden  shadow-2xl cursor-pointer"
             style={{
               width: isCenter ? "52vw" : "36vw",
               height: "70vh",
               transform: hidden
                 ? `translateX(${offset > 0 ? offscreenX : -offscreenX}vw) scale(0.85)`
-                : `translateX(${offset * spacingVW}vw) scale(${isCenter ? 1.06 : 0.86}) rotateY(${offset * 6}deg) rotateZ(${offset * 4}deg)`,
+                : `translateX(${offset * spacingVW}vw) scale(${isCenter ? 1.05 : 0.85}) rotateY(${offset * 10}deg) rotateX(${offset * 0}deg)`,
               zIndex: isCenter ? 20 : 10,
               opacity: hidden ? 0 : 1,
               pointerEvents: hidden ? "none" : "auto",
@@ -101,7 +101,7 @@ export default function ProjectsCarousel() {
               />
             )}
             {isCenter && (
-              <div className="absolute h-full top-3 left-0 right-0 text-white text-center">
+              <div className="absolute h-full top-3 left-0 right-0 blur text-white text-center">
                 <h3 className="font-bold text-xl md:text-2xl">
                   {project.title}
                 </h3>

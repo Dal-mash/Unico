@@ -1,5 +1,3 @@
-import React from "react";
-import { Twitter, Linkedin, Github } from "lucide-react";
 import {
   FaInstagram,
   FaLinkedin,

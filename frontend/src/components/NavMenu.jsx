@@ -14,7 +14,7 @@ export default function NavMenu() {
   };
 
   return (
-    <div className="relative ourline-white">
+    <div className="relative ourline-white backdrop-blur-lg">
       <MenuIcon open={open} onToggle={() => setOpen(!open)} />
       {open && <MenuPanel onNavigate={handleScroll} />}
     </div>

@@ -80,7 +80,7 @@ const ProcessCards = ({ steps }) => {
                   duration: 0.25,
                   delay: expandDuration * 0.25,
                 }}
-                className="relative z-10 px-6 py-1.5 text-white text-center text-lg font-semibold leading-relaxed h-full w-full"
+                className="relative z-10 px-6 py-1.5 text-white text-center text-lg font-semibold leading-relaxed h-full w-1/2"
               >
                 {step.desc}
               </motion.div>

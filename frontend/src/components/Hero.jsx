@@ -1,20 +1,19 @@
 import Header from "./Header.jsx";
-import ShinyText from "./ShinyText";
 import LightRays from "./LightRays.jsx";
 import Particles from "./Particles.jsx";
-import TextHoverEffect from "./TextHover.jsx";
 import PrismaticBurst from "./Rays.jsx";
 import GradientText from "./GradientText.jsx";
+import Button from "./HeroButton.jsx";
+import GlareHover from "./HoverGlare.jsx";
 
 export default function Hero() {
-  // Set VIDEO_SRC to your video path (e.g. '/videos/hero.mp4' or an external URL)
   return (
-    <section className="min-h-screen h-screen justify-center flex items-center bg-white text-slate-900 snap-start relative overflow-hidden">
+    <section className="relative min-h-screen bg-blend-overlay h-screen flex items-center justify-center overflow-hidden text-slate-900 snap-start">
       <Header />
-      {/* <div style={{ width: "100%", height: "100%", position: "absolute" }}>
+      <div style={{ width: "100%", height: "100%", position: "absolute" }}>
         <LightRays
           raysOrigin="top-center"
-          raysColor="#3b82f6"
+          raysColor=""
           raysSpeed={1}
           lightSpread={1}
           rayLength={5}
@@ -22,12 +21,12 @@ export default function Hero() {
           mouseInfluence={0.5}
           noiseAmount={0}
           distortion={0}
-          className="custom-rays"
+          className=""
           pulsating={true}
           fadeDistance={1}
           saturation={1}
         />
-      </div> */}
+      </div>
       {/* <div
         style={{
           width: "100%",
@@ -48,8 +47,8 @@ export default function Hero() {
           mixBlendMode="lighten"
           colors={["#003670", "#008bc7", "#ffffff"]}
         />
-      </div> */}
-      <div
+      </div>*/}
+      {/* <div
         style={{
           width: "100%",
           height: "100%",
@@ -68,24 +67,43 @@ export default function Hero() {
           disableRotation={true}
           pixelRatio={1}
         />
-      </div>
+      </div> */}
+      <video
+        src="/HERO_2.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-100 -z-10"
+      />
+
       <div className="container mx-auto px-6 lg:px-20 relative z-10">
-        <div className="flex items-center justify-center h-full gap-8  ">
-          <div className="text-center py-12 lg:py-24 flex flex-col space-y-10 lg:space-y-10">
-            <div className="text-gray-700 flex items-center gap-10 justify-center lg:w-1/2   mx-auto">
+        <div className="flex items-center justify-center h-auto gap-8  ">
+          <div className="text-center  py-12 lg:py-24 flex flex-col space-y-10 lg:space-y-10">
+            <div className="text-gray-300 flex items-center gap-10 justify-center lg:w-1/2   mx-auto">
               <div className="flex-1 border-t "></div>
               <span className=" text-xl font-medium">Welcome to Unico</span>
               <div className="flex-1 border-t  w-1/4"></div>
             </div>
-
-            <GradientText
-              className="text-5xl lg:text-8xl w-4xl font-extrabold leading-tight"
+            {/* <GradientText
+              className="text-5xl lg:text-8xl  w-4xl font-semibold leading-tight "
               text="Shaping Emotions With Light"
-              colors={["#003670", "#008bc7"]}
+              colors={["white", "gray", "white", "white"]}
               animationSpeed={3}
             >
               Shaping Emotions With Light
-            </GradientText>
+            </GradientText> */}
+            <h1
+              className="text-5xl text-white lg:text-8xl w-4xl font-bold leading-tight "
+              style={{
+                textShadow: "2px 2px 5px rgba(28, 57, 142, 0.2)",
+                WebkitTextStroke: "3px rgba(28, 57, 142, 0.2)",
+                fontFamily: "Source Serif 4, sans-serif",
+              }}
+            >
+              Shaping Emotions With Light
+            </h1>
+            <Button />
           </div>
         </div>
       </div>
