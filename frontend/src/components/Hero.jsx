@@ -69,7 +69,7 @@ export default function Hero() {
         />
       </div> */}
       <video
-        src="/HERO_2.mp4"
+        src="/hero.mp4"
         autoPlay
         loop
         muted
